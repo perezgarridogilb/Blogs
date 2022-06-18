@@ -36,7 +36,7 @@ Controlador, validadores, objeto form, DispatcherServlet, Handler mapping, view 
 
 ## ¿Qué es la inyección de Dependencia?
 
-Es suministrar a un objeto una referencia de otro(s) objetos(s) que necesite según la relación
+Es suministrar a un objeto una referencia de otro(s) objetos(s) que necesite según la relación.
 
 - Resuelve el problema de reutilización y modularidad entre componentes
 
