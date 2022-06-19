@@ -20,7 +20,7 @@ public class UsuarioValidador implements Validator {
 		// Casteos
 		Usuario usuario = (Usuario)target;
 		
-		ValidationUtils.rejectIfEmpty(errors, "nombre", "NotEmpty.usuario.nombre");
+		ValidationUtils.rejectIfEmptyOrWhitespace(errors, "nombre", "NotEmpty.usuario.nombre");
 		
 		/**
 		 * Otra alternativa
