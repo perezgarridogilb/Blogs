@@ -1,5 +1,7 @@
 package com.bolsadeideas.springboot.form.app.controllers;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,6 +39,17 @@ public class FormController {
 	public void initBinder(WebDataBinder binder) {
 		/* binder.setValidator(validador); */
 		binder.addValidators(validador);
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		/**
+		 * Qué sea estricto con el formato
+		 */
+		dateFormat.setLenient(false);
+		
+		/**
+		 * Le pasamos Date y una instancia
+		 */
+		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
 	}
 	
 	@GetMapping("/form")
