@@ -5,7 +5,7 @@
 - Modelo, Vista y Controlador
 - Inyección de Dependencia
 - Orientado al uso de Interfaces
-- Uso de clases POJO
+- Uso de clases  Plain Old Java Object (POJO)
 
 ## Cómo funciona Spring
 - El Front Controller Dispatcher recibe una solicitud HTTP del navegador
