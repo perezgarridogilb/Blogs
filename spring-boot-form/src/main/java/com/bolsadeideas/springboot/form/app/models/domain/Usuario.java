@@ -10,6 +10,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Past;
 //import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
@@ -53,9 +54,12 @@ public class Usuario {
 	private Integer cuenta;
 	
 	@NotNull
-	@Future
-	@DateTimeFormat(pattern="yyyy-MM-dd")
+	@Past
+	//@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date fechaNacimiento;
+	
+	@NotEmpty
+	private String pais;
 
 	public String getUsername() {
 		return username;
@@ -119,6 +123,14 @@ public class Usuario {
 
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
+	}
+
+	public String getPais() {
+		return pais;
+	}
+
+	public void setPais(String pais) {
+		this.pais = pais;
 	}
 	
 }

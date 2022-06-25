@@ -1,13 +1,16 @@
 package com.bolsadeideas.springboot.form.app.controllers;
 
-import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -20,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
+import com.bolsadeideas.springboot.form.app.editors.NombreMayusculaEditor;
 import com.bolsadeideas.springboot.form.app.models.domain.Usuario;
 import com.bolsadeideas.springboot.form.app.validation.UsuarioValidador;
 
@@ -47,9 +51,17 @@ public class FormController {
 		dateFormat.setLenient(false);
 		
 		/**
-		 * Le pasamos Date y una instancia
+		 * Le pasamos Date y una instancia (true o false para verse vacío (validación adicional en caso de true))
+		 * "fechaNacimiento": ser específico con la validación
+		 * 
 		 */
-		binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, false));
+		binder.registerCustomEditor(Date.class, "fechaNacimiento", new CustomDateEditor(dateFormat, true));
+		binder.registerCustomEditor(String.class, "nombre", new NombreMayusculaEditor());
+	}
+	
+	@ModelAttribute("paises")
+	public List<String> paises(){
+		return Arrays.asList("España", "México", "Chile", "Argentina", "Perú", "Colombia", "Venezuela");
 	}
 	
 	@GetMapping("/form")
