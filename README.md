@@ -80,6 +80,6 @@ Anotación @Autowired
 
 **El término "bean" se utiliza para referirse a cualquier componente manejado por Spring**
 
-Los beans deben ser anotado con la anotación @Component o sus derivados
+Los beans deben ser anotado con la anotación **@Component** o sus derivados
 Debe tener un constructor vacío por defecto, sin argumentos
 - Cualquier beans anotado con @Component (o derivados) bajo el package serán instanciados y manejados por el contenedor DI de Spring (Auto-Scanning)
