@@ -57,6 +57,7 @@ public class FormController {
 		 */
 		binder.registerCustomEditor(Date.class, "fechaNacimiento", new CustomDateEditor(dateFormat, true));
 		binder.registerCustomEditor(String.class, "nombre", new NombreMayusculaEditor());
+		binder.registerCustomEditor(String.class, "apellido", new NombreMayusculaEditor());
 	}
 	
 	@ModelAttribute("paises")
